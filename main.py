@@ -21,6 +21,7 @@ def create_pdf(name):
     yellow = (255, 255, 0)
     red = (255, 0, 0)
     blue = (0, 111, 255)
+    orange = (255, 155, 0)
     white = (255, 255, 255)
 
     with open(f'{name}.json', 'r', encoding='utf-8') as f:
@@ -52,6 +53,8 @@ def create_pdf(name):
             pdf.set_text_color(*red)
         elif title in ['Детектив', 'Сыщик и Патрульный', 'Супермирный']:
             pdf.set_text_color(*blue)
+        elif title == 'Последние изменения:':
+            pdf.set_text_color(*orange)
         else:
             pdf.set_text_color(*yellow)
         pdf.set_font('CustomFont', size=28)
