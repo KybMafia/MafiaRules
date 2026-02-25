@@ -53,7 +53,7 @@ def create_pdf(name):
             pdf.set_text_color(*red)
         elif title in ['Детектив', 'Сыщик и Патрульный', 'Супермирный']:
             pdf.set_text_color(*blue)
-        elif title == 'Последние изменения:':
+        elif title in ['Последние изменения:', 'Золотая минута', 'Переголосование', 'Вскрытие роли']:
             pdf.set_text_color(*orange)
         else:
             pdf.set_text_color(*yellow)
