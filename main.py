@@ -1,4 +1,6 @@
 import json
+import subprocess
+
 from fpdf import FPDF
 
 
@@ -69,3 +71,7 @@ def create_pdf(name):
 
 
 create_pdf('kyb')
+subprocess.run(["git", "add", "."])
+subprocess.run(["git", "commit", "-m", "update"])
+subprocess.run(["git", "push"])
+print("Правила опубликованы!")
