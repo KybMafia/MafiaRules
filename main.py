@@ -30,7 +30,7 @@ def create_pdf(name):
     with open(f'{name}.json', 'r', encoding='utf-8') as f:
         file = json.load(f)
         for i in file['entries']:
-            i['content'] = i['content'].replace('\n    ', ' ')
+            # i['content'] = i['content'].replace('\n    ', ' ')
             i['content'] = i['content'].replace('     ', '\n    ')
         data = [(entry['role'], entry['content']) for entry in file['entries']]
 
