@@ -31,7 +31,7 @@ def create_pdf(name):
         file = json.load(f)
         for i in file['entries']:
             # i['content'] = i['content'].replace('\n    ', ' ')
-            i['content'] = i['content'].replace('     ', '\n    ')
+            i['content'] = i['content'].replace('    ', '\n    ')
         data = [(entry['role'], entry['content']) for entry in file['entries']]
 
     pdf.add_page()
