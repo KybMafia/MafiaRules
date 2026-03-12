@@ -21,10 +21,8 @@ def create_pdf(name):
     pdf.add_font('CustomFont', '', font_path, uni=True)
 
     yellow = (255, 255, 0)
-    red = (164, 200, 95)
-    # ((0.643, 0.784, 0.373)
-    #  (0.792, 0.31, 0.231))
-
+    red = (201, 79, 58)
+    green=(163, 199, 95)
     blue = (0, 111, 255)
     orange = (255, 155, 0)
     white = (255, 255, 255)
@@ -59,9 +57,9 @@ def create_pdf(name):
         elif title in ['Детектив', 'Сыщик и Патрульный', 'Супермирный']:
             pdf.set_text_color(*blue)
         elif title in ['Последние изменения:', 'Золотая минута', 'Переголосование', 'Вскрытие роли']:
-            pdf.set_text_color(*orange)
-        else:
             pdf.set_text_color(*yellow)
+        else:
+            pdf.set_text_color(*green)
         pdf.set_font('CustomFont', size=28)
         pdf.cell(0, line_height * 1.5, title, ln=True, align="C")
 
