@@ -22,7 +22,7 @@ def create_pdf(name):
 
     yellow = (255, 255, 0)
     red = (201, 79, 58)
-    green=(163, 199, 95)
+    green=(140, 233, 110)
     blue = (0, 111, 255)
     orange = (255, 155, 0)
     white = (255, 255, 255)
