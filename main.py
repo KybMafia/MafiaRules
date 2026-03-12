@@ -64,7 +64,7 @@ def create_pdf(name):
 
         pdf.set_text_color(*white)
         pdf.set_font('CustomFont', size=22)
-        pdf.multi_cell(0, line_height*2, text.strip())
+        pdf.multi_cell(0, line_height*1.3, text.strip())
 
     pdf.output('ПРАВИЛА' + '.pdf')
     print(f"PDF создан: {name}")
