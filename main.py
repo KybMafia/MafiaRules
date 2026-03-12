@@ -13,6 +13,13 @@ class CustomPDF(FPDF):
         pass
 
 
+def public():
+    subprocess.run(["git", "add", "."])
+    subprocess.run(["git", "commit", "-m", "update"])
+    subprocess.run(["git", "push"])
+    print("Правила опубликованы!")
+
+
 def create_pdf(name):
     pdf = CustomPDF()
     pdf.set_auto_page_break(auto=True, margin=0)
@@ -29,9 +36,6 @@ def create_pdf(name):
 
     with open(f'{name}.json', 'r', encoding='utf-8') as f:
         file = json.load(f)
-        for i in file['entries']:
-            # i['content'] = i['content'].replace('\n    ', ' ')
-            i['content'] = i['content'].replace('     ', '\n    ')
         data = [(entry['role'], entry['content']) for entry in file['entries']]
 
     pdf.add_page()
@@ -73,7 +77,4 @@ def create_pdf(name):
 
 
 create_pdf('kyb')
-subprocess.run(["git", "add", "."])
-subprocess.run(["git", "commit", "-m", "update"])
-subprocess.run(["git", "push"])
-print("Правила опубликованы!")
+public()
