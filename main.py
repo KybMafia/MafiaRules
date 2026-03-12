@@ -21,7 +21,10 @@ def create_pdf(name):
     pdf.add_font('CustomFont', '', font_path, uni=True)
 
     yellow = (255, 255, 0)
-    red = (255, 0, 0)
+    red = (164, 200, 95)
+    # ((0.643, 0.784, 0.373)
+    #  (0.792, 0.31, 0.231))
+
     blue = (0, 111, 255)
     orange = (255, 155, 0)
     white = (255, 255, 255)
