@@ -69,9 +69,9 @@ def create_pdf(name):
         pdf.multi_cell(0, 16, title, align="C")
 
         # ─── Картинка ────────────────────────────────────────────────────────────
-        images = False
+        images = True
         if images:
-            titles_names = {'Главное меню': '1',
+            menu_images = {'Главное меню': '1',
                             'Управление игрой': '2',
                             'Режимы раздачи ролей': '4',
                             'Окно знакомства': '6',
@@ -80,16 +80,63 @@ def create_pdf(name):
                             'Окно результата голосования': '10',
                             'Отмена результата ночи или голосования': '11',
                             'Рейтинговая система': '12'}
-            if title in titles_names:
-                img_path = f'images/{titles_names[title]}.jpg'
+            if title in menu_images:
+                img_path = f'images/{menu_images[title]}.jpg'
                 text_width = pdf.w - pdf.l_margin - pdf.r_margin
                 pdf.image(img_path, x=pdf.l_margin, w=text_width)
                 pdf.ln(5)
-                if titles_names[title] in ['2', '4', '7']:
-                    img_path = f'images/{int(titles_names[title]) + 1}.jpg'
+                if menu_images[title] in ['2', '4', '7']:
+                    img_path = f'images/{int(menu_images[title]) + 1}.jpg'
                     text_width = pdf.w - pdf.l_margin - pdf.r_margin
                     pdf.image(img_path, x=pdf.l_margin, w=text_width)
                     pdf.ln(5)
+            roles_images = {
+                "Вор": 'thief',
+                "Маньяк": 'maniac',
+                "Агент": 'agent',
+                "Адвокат": 'advocate',
+                "Мафия": 'mafia',
+                "Картель": 'cartel',
+                "Якудза": 'yakuza',
+                'Стукач': 'slanderer',
+                "Красотка": 'fucker',
+                'Телохранитель': 'bodyguard',
+                "Доктор": 'doc',
+                "Детектив": 'cop',
+                "Сыщик": 'finder',
+                "Патрульный": 'patrol',
+                "Сыщик и Патрульный": 'finder',
+                "Журналист": 'aferist',
+                "Мститель": 'avenger',
+                "Оборотень": 'werewolf',
+                "Везунчик": 'lucker',
+                "Экстрасенс": 'ekstrasens',
+                'Судья': 'judge',
+                'Сектант': 'sect',
+                'Дон': 'don',
+                'Отравитель': 'poisoner',
+                'Супермирный': 'superman',
+                'Близнецы': 'twins',
+                'Зомби': 'zombie',
+                'Зеркало': 'glass',
+                'Консильери': 'consigliere',
+                'Минер': 'bomber',
+                'Лидер': 'leader',
+                'Оратор': 'speaker',
+                'Берсерк': 'berserk',
+                'Провокатор': 'provocator'}
+            if title in roles_images:
+                img1_path = f'images/roles/{roles_images[title]}1.png'
+                img2_path = f'images/roles/{roles_images[title]}2.png'
+                page_height = pdf.h - pdf.t_margin
+                img_height = page_height / 3
+                img_width = (pdf.w - pdf.l_margin - pdf.r_margin - 5) / 2
+                y = pdf.get_y()
+                pdf.image(img1_path, x=pdf.l_margin, y=y, w=img_width, h=img_height)
+                pdf.image(img2_path, x=pdf.l_margin + img_width + 5, y=y, w=img_width, h=img_height)
+
+                pdf.set_y(y + img_height + 5)
+
         # ─── Текст ────────────────────────────────────────────────────────────────
         pdf.set_text_color(*white)
         pdf.set_font('CustomFont', size=22)
