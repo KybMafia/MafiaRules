@@ -90,6 +90,7 @@ def create_pdf(name):
                     text_width = pdf.w - pdf.l_margin - pdf.r_margin
                     pdf.image(img_path, x=pdf.l_margin, w=text_width)
                     pdf.ln(5)
+
             roles_images = {
                 "Вор": 'thief',
                 "Маньяк": 'maniac',
