@@ -57,7 +57,7 @@ def create_pdf(name):
             pdf.set_text_color(*red)
         elif title in ['Детектив', 'Сыщик и Патрульный', 'Супермирный']:
             pdf.set_text_color(*blue)
-        elif title in ['Золотая минута', 'Переголосование', 'Вскрытие роли','Рейтинг']:
+        elif title in ['Золотая минута', 'Переголосование', 'Вскрытие роли', 'Рейтинг']:
             pdf.set_text_color(*yellow)
         elif title in ['Что нового:']:
             pdf.set_text_color(*blue)
@@ -72,14 +72,14 @@ def create_pdf(name):
         images = True
         if images:
             menu_images = {'Главное меню': '1',
-                            'Управление игрой': '2',
-                            'Режимы раздачи ролей': '4',
-                            'Окно знакомства': '6',
-                            'Окно ночного выбора': '7',
-                            'Окно результата ночи': '9',
-                            'Окно результата голосования': '10',
-                            'Отмена результата ночи или голосования': '11',
-                            'Рейтинговая система': '12'}
+                           'Управление игрой': '2',
+                           'Режимы раздачи ролей': '4',
+                           'Окно знакомства': '6',
+                           'Окно ночного выбора': '7',
+                           'Окно результата ночи': '9',
+                           'Окно результата голосования': '10',
+                           'Отмена результата ночи или голосования': '11',
+                           'Рейтинговая система': '12'}
             if title in menu_images:
                 img_path = f'images/{menu_images[title]}.jpg'
                 text_width = pdf.w - pdf.l_margin - pdf.r_margin
@@ -125,7 +125,8 @@ def create_pdf(name):
                 'Лидер': 'leader',
                 'Оратор': 'speaker',
                 'Берсерк': 'berserk',
-                'Провокатор': 'provocator'}
+                'Провокатор': 'provocator',
+                'Волшебник': 'magic'}
             if title in roles_images:
                 img1_path = f'images/roles/{roles_images[title]}1.png'
                 img2_path = f'images/roles/{roles_images[title]}2.png'
